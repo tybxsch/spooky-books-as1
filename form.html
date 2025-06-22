@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Terror Literário</title>
+    
+    <!-- CSS Modular -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages/form.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">Terror Literário</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="about.html" class="nav-link">Sobre</a>
+                <a href="form.html" class="nav-link active">Contato</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="form-main">
+        <section class="form-hero">
+            <div class="container">
+                <h1 class="page-title">Entre em Contato</h1>
+                <p class="page-subtitle">Compartilhe suas recomendações de terror ou tire suas dúvidas</p>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <form class="contact-form" id="contactForm" action="formAction.html" method="GET">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nome Completo *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">E-mail *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefone</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                            <span class="error-message" id="phoneError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age" class="form-label">Idade *</label>
+                            <input type="number" id="age" name="age" class="form-input" min="13" max="120" required>
+                            <span class="error-message" id="ageError"></span>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="genre" class="form-label">Subgênero Favorito *</label>
+                            <select id="genre" name="genre" class="form-select" required>
+                                <option value="">Selecione um subgênero</option>
+                                <option value="horror-gotico">Horror Gótico</option>
+                                <option value="horror-cosmico">Horror Cósmico</option>
+                                <option value="horror-psicologico">Horror Psicológico</option>
+                                <option value="horror-sobrenatural">Horror Sobrenatural</option>
+                                <option value="slasher">Slasher</option>
+                                <option value="body-horror">Body Horror</option>
+                            </select>
+                            <span class="error-message" id="genreError"></span>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="message" class="form-label">Mensagem *</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" required placeholder="Conte-nos sobre seus livros de terror favoritos ou deixe sua mensagem..."></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter" value="sim">
+                                <span class="checkmark"></span>
+                                Quero receber recomendações de livros de terror por e-mail
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-button">Enviar Mensagem</button>
+                        <button type="reset" class="reset-button">Limpar Formulário</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Terror Literário. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modular -->
+    <script src="scripts/menu.js"></script>
+    <script src="scripts/effects.js"></script>
+    <script src="scripts/formValidation.js"></script>
+</body>
+</html>

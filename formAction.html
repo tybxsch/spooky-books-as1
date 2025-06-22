@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Recebida - Terror Literário</title>
+    
+    <!-- CSS Modular -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages/formAction.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">Terror Literário</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="about.html" class="nav-link">Sobre</a>
+                <a href="form.html" class="nav-link">Contato</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="result-main">
+        <section class="result-hero">
+            <div class="container">
+                <h1 class="page-title">Mensagem Recebida com Sucesso!</h1>
+                <p class="page-subtitle">Obrigado por entrar em contato conosco</p>
+            </div>
+        </section>
+
+        <section class="result-content">
+            <div class="container">
+                <div class="result-card">
+                    <h2 class="result-title">Dados Recebidos:</h2>
+                    <div class="result-data" id="resultData">
+                        <!-- Os dados serão inseridos aqui via JavaScript -->
+                    </div>
+                    <div class="result-actions">
+                        <a href="index.html" class="back-button">Voltar ao Início</a>
+                        <a href="form.html" class="new-form-button">Novo Contato</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Terror Literário. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modular -->
+    <script src="scripts/menu.js"></script>
+    <script src="scripts/effects.js"></script>
+    <script src="scripts/formAction.js"></script>
+</body>
+</html>

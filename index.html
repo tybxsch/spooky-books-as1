@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terror Literário - Página Inicial</title>
+    
+    <!-- CSS Modular -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages/index.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">Terror Literário</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link active">Início</a>
+                <a href="about.html" class="nav-link">Sobre</a>
+                <a href="form.html" class="nav-link">Contato</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Bem-vindo ao Reino do Terror</h1>
+                <p class="hero-subtitle">Explore as profundezas mais sombrias da literatura de horror</p>
+                <a href="about.html" class="cta-button">Descubra Mais</a>
+            </div>
+            <div class="hero-image">
+                <div class="floating-element"></div>
+            </div>
+        </section>
+
+        <section class="featured-books">
+            <div class="container">
+                <h2 class="section-title">Livros em Destaque</h2>
+                <div class="books-grid">
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <div class="book-placeholder">📚</div>
+                        </div>
+                        <h3 class="book-title">O Chamado de Cthulhu</h3>
+                        <p class="book-author">H.P. Lovecraft</p>
+                        <p class="book-description">Uma obra-prima do horror cósmico que mergulha nas profundezas do desconhecido.</p>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <div class="book-placeholder">📖</div>
+                        </div>
+                        <h3 class="book-title">Drácula</h3>
+                        <p class="book-author">Bram Stoker</p>
+                        <p class="book-description">O clássico vampiresco que definiu o gênero para toda uma geração.</p>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <div class="book-placeholder">📗</div>
+                        </div>
+                        <h3 class="book-title">Frankenstein</h3>
+                        <p class="book-author">Mary Shelley</p>
+                        <p class="book-description">Uma reflexão sobre ciência, criação e as consequências de brincar de Deus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="container">
+                <h2 class="section-title">Receba Recomendações Sombrias</h2>
+                <p class="newsletter-description">Inscreva-se para receber as melhores indicações de livros de terror</p>
+                <a href="form.html" class="newsletter-button">Inscrever-se</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Terror Literário. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modular -->
+    <script src="scripts/menu.js"></script>
+    <script src="scripts/effects.js"></script>
+</body>
+</html>
