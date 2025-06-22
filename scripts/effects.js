@@ -96,10 +96,6 @@ function typeWriterEffect(element) {
             i++;
         } else {
             clearInterval(timer);
-            setTimeout(() => {
-                element.style.borderRight = 'none';
-                element.style.animation = 'none';
-            }, 1000);
         }
     }, 100);
 }
