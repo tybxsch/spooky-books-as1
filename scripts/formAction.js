@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     processFormData();
 });
 
-// Processar dados do formulário recebidos via GET
+// Não entendi o que fazer aqui, mas foi a forma que pensei para fazer o formAction.html funcionar e recuperar as informações do formulário sem usar o backend
 function processFormData() {
     const urlParams = new URLSearchParams(window.location.search);
     const resultContainer = document.getElementById('resultData');
@@ -14,16 +14,12 @@ function processFormData() {
         console.error('Container de resultado não encontrado');
         return;
     }
-    
-    // Verificar se há dados na URL
+
     if (urlParams.toString() === '') {
         showNoDataMessage();
         return;
     }
-    
-    console.log('Processando dados recebidos...');
-    
-    // Mapear campos para labels mais amigáveis
+
     const fieldLabels = {
         'name': 'Nome',
         'email': 'E-mail',
@@ -34,7 +30,6 @@ function processFormData() {
         'newsletter': 'Newsletter'
     };
     
-    // Mapear valores de gênero para nomes mais amigáveis
     const genreNames = {
         'horror-gotico': 'Horror Gótico',
         'horror-cosmico': 'Horror Cósmico',
@@ -47,14 +42,12 @@ function processFormData() {
     let hasData = false;
     let dataHtml = '';
     
-    // Processar cada parâmetro
     for (const [key, value] of urlParams.entries()) {
         if (value && value.trim() !== '') {
             hasData = true;
             const label = fieldLabels[key] || key;
             let displayValue = value;
             
-            // Formatar valores especiais
             switch (key) {
                 case 'genre':
                     displayValue = genreNames[value] || value;
@@ -68,7 +61,6 @@ function processFormData() {
                     }
                     break;
                 case 'message':
-                    // Quebrar linhas longas para melhor visualização
                     if (value.length > 100) {
                         displayValue = value.substring(0, 100) + '...<br><br><strong>Mensagem completa:</strong><br>' + value;
                     }
@@ -76,7 +68,6 @@ function processFormData() {
             }
             
             dataHtml += createDataItem(label, displayValue);
-            console.log(`Dado processado - ${label}: ${value}`);
         }
     }
     
@@ -91,7 +82,6 @@ function processFormData() {
     }
 }
 
-// Criar item de dados
 function createDataItem(label, value) {
     return `
         <div class="data-item">
@@ -100,8 +90,6 @@ function createDataItem(label, value) {
         </div>
     `;
 }
-
-// Mostrar mensagem quando não há dados
 function showNoDataMessage() {
     const resultContainer = document.getElementById('resultData');
     resultContainer.innerHTML = `
@@ -150,7 +138,6 @@ function addCopyButton() {
     resultCard.insertBefore(copyButton, document.querySelector('.result-actions'));
 }
 
-// Adicionar botão de imprimir
 function addPrintButton() {
     const resultCard = document.querySelector('.result-card');
     if (!resultCard) return;
@@ -185,7 +172,6 @@ function addPrintButton() {
     resultCard.insertBefore(printButton, document.querySelector('.result-actions'));
 }
 
-// Copiar dados para clipboard
 function copyDataToClipboard() {
     const dataItems = document.querySelectorAll('.data-item');
     let textToCopy = 'Dados do Formulário - Terror Literário\n\n';
@@ -207,7 +193,6 @@ function copyDataToClipboard() {
     });
 }
 
-// Imprimir dados
 function printData() {
     const printWindow = window.open('', '_blank');
     const dataHtml = document.getElementById('resultData').innerHTML;
@@ -272,11 +257,8 @@ function printData() {
     printWindow.document.write(printHtml);
     printWindow.document.close();
     printWindow.print();
-    
-    console.log('Dados enviados para impressão');
 }
 
-// Log da submissão do formulário
 function logFormSubmission(urlParams) {
     const submissionData = {
         timestamp: new Date().toISOString(),
@@ -288,14 +270,10 @@ function logFormSubmission(urlParams) {
     for (const [key, value] of urlParams.entries()) {
         submissionData.data[key] = value;
     }
-    
-    console.log('Dados do formulário submetido:', submissionData);
-    
-    // Aqui você poderia enviar os dados para um servidor ou analytics
-    // trackFormSubmission(submissionData);
+
+    // Implementar aqui o post, quando estiver pronto
 }
 
-// Mostrar animação de sucesso
 function showSuccessAnimation() {
     const resultCard = document.querySelector('.result-card');
     if (!resultCard) return;
@@ -303,59 +281,11 @@ function showSuccessAnimation() {
     // Adicionar classe de animação
     resultCard.style.animation = 'slideInUp 0.6s ease-out';
     
-    // Criar confetti effect
-    createConfettiEffect();
-    
     setTimeout(() => {
         showToast('Dados recebidos e processados com sucesso!', 'success');
     }, 500);
 }
 
-// Efeito confetti
-function createConfettiEffect() {
-    const colors = ['#dc143c', '#8b0000', '#ffffff', '#f5f5f5'];
-    const confettiContainer = document.createElement('div');
-    confettiContainer.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 9999;
-    `;
-    
-    document.body.appendChild(confettiContainer);
-    
-    for (let i = 0; i < 50; i++) {
-        setTimeout(() => {
-            createConfettiPiece(confettiContainer, colors);
-        }, i * 50);
-    }
-    
-    // Remover container após animação
-    setTimeout(() => {
-        if (confettiContainer.parentNode) {
-            confettiContainer.parentNode.removeChild(confettiContainer);
-        }
-    }, 3000);
-}
-
-function createConfettiPiece(container, colors) {
-    const confetti = document.createElement('div');
-    confetti.style.cssText = `
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        background: ${colors[Math.floor(Math.random() * colors.length)]};
-        left: ${Math.random() * 100}%;
-        top: -10px;
-        border-radius: 50%;
-        animation: confettiFall ${2 + Math.random() * 2}s linear forwards;
-    `;
-    
-    container.appendChild(confetti);
-}
 
 // Função para mostrar toast
 function showToast(message, type = 'info') {
@@ -407,35 +337,10 @@ animationStyles.textContent = `
             transform: translateY(0);
         }
     }
-    
-    @keyframes confettiFall {
-        from {
-            transform: translateY(-10px) rotate(0deg);
-            opacity: 1;
-        }
-        to {
-            transform: translateY(100vh) rotate(360deg);
-            opacity: 0;
-        }
-    }
 `;
 document.head.appendChild(animationStyles);
 
 // Função para voltar ao formulário (caso necessário)
 function goBackToForm() {
     window.location.href = 'form.html';
-}
-
-// Analytics (exemplo - não funcional sem servidor)
-function trackFormSubmission(data) {
-    // Exemplo de como você enviaria dados para analytics
-    console.log('Dados que seriam enviados para analytics:', data);
-    
-    // fetch('/api/analytics/form-submission', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(data)
-    // });
 }

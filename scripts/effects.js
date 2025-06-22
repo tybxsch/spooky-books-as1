@@ -1,76 +1,68 @@
-// ===== EFEITOS E INTERAÇÕES =====
-
-// Inicializar efeitos quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Effects - Script carregado');
+//  EFEITOS E INTERAÇÕES 
+document.addEventListener('DOMContentLoaded', function () {
     initThemeEffects();
     initScrollAnimations();
     initParticleEffects();
     initTypeWriterEffect();
 });
 
-// ===== EFEITOS DE TEMA E INTERATIVIDADE =====
+//  EFEITOS DE TEMA E INTERATIVIDADE 
 function initThemeEffects() {
-    // Efeito de hover nos cards de livros
     const bookCards = document.querySelectorAll('.book-card');
     bookCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-10px) scale(1.02)';
-            console.log('Card hover ativado');
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
-    
-    // Efeito de hover nos cards de conteúdo
+
     const contentCards = document.querySelectorAll('.content-card');
     contentCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-8px) scale(1.01)';
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
-    
-    // Efeito de hover nos autores
+
     const authors = document.querySelectorAll('.author');
     authors.forEach(author => {
-        author.addEventListener('mouseenter', function() {
+        author.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-3px) scale(1.05)';
         });
-        
-        author.addEventListener('mouseleave', function() {
+
+        author.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
-    
-    // Efeito de hover nos links da lista de gêneros
+
     const genreItems = document.querySelectorAll('.genre-list li');
     genreItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
+        item.addEventListener('mouseenter', function () {
             this.style.paddingLeft = 'var(--spacing-md)';
             this.style.color = 'var(--smoke-white)';
         });
-        
-        item.addEventListener('mouseleave', function() {
+
+        item.addEventListener('mouseleave', function () {
             this.style.paddingLeft = 'var(--spacing-sm)';
             this.style.color = 'var(--light-gray)';
         });
     });
 }
 
-// ===== ANIMAÇÕES DE SCROLL =====
+//  ANIMAÇÕES DE SCROLL 
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
+
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
@@ -79,8 +71,7 @@ function initScrollAnimations() {
             }
         });
     }, observerOptions);
-    
-    // Observar elementos que devem ser animados
+
     const animatedElements = document.querySelectorAll('.book-card, .content-card, .author, .data-item');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -88,8 +79,7 @@ function initScrollAnimations() {
         el.style.transition = 'all 0.6s ease-out';
         observer.observe(el);
     });
-    
-    // Animação específica para seções
+
     const sections = document.querySelectorAll('.section, .form-section, .result-content');
     sections.forEach(section => {
         section.style.opacity = '0';
@@ -99,29 +89,25 @@ function initScrollAnimations() {
     });
 }
 
-// ===== EFEITO DE PARTÍCULAS =====
+//  EFEITO DE PARTÍCULAS 
 function initParticleEffects() {
-    // Efeito de partículas no hero (apenas na página inicial)
     if (document.querySelector('.hero')) {
         createParticleEffect();
     }
-    
-    // Efeito de partículas no about hero
+
     if (document.querySelector('.about-hero')) {
         createDotPatternEffect();
     }
-    
-    // Efeito de partículas no form hero
+
     if (document.querySelector('.form-hero')) {
         createFormParticleEffect();
     }
 }
 
-// Criar efeito de partículas no hero
 function createParticleEffect() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
-    
+
     const particlesContainer = document.createElement('div');
     particlesContainer.className = 'particles-container';
     particlesContainer.style.cssText = `
@@ -133,15 +119,11 @@ function createParticleEffect() {
         pointer-events: none;
         z-index: 0;
     `;
-    
+
     hero.appendChild(particlesContainer);
-    
-    // Criar partículas
     for (let i = 0; i < 50; i++) {
         createParticle(particlesContainer);
     }
-    
-    console.log('Efeito de partículas criado');
 }
 
 function createParticle(container) {
@@ -158,9 +140,9 @@ function createParticle(container) {
         top: ${Math.random() * 100}%;
         animation-delay: ${Math.random() * 2}s;
     `;
-    
+
     container.appendChild(particle);
-    
+
     // Remover partícula após um tempo para evitar acúmulo
     setTimeout(() => {
         if (particle.parentNode) {
@@ -173,7 +155,7 @@ function createParticle(container) {
 function createDotPatternEffect() {
     const hero = document.querySelector('.about-hero');
     if (!hero) return;
-    
+
     const dotsContainer = document.createElement('div');
     dotsContainer.className = 'dots-container';
     dotsContainer.style.cssText = `
@@ -186,8 +168,7 @@ function createDotPatternEffect() {
         z-index: 0;
         opacity: 0.1;
     `;
-    
-    // Criar padrão de pontos
+
     for (let i = 0; i < 100; i++) {
         const dot = document.createElement('div');
         dot.style.cssText = `
@@ -203,7 +184,7 @@ function createDotPatternEffect() {
         `;
         dotsContainer.appendChild(dot);
     }
-    
+
     hero.appendChild(dotsContainer);
 }
 
@@ -211,7 +192,7 @@ function createDotPatternEffect() {
 function createFormParticleEffect() {
     const hero = document.querySelector('.form-hero');
     if (!hero) return;
-    
+
     const formParticlesContainer = document.createElement('div');
     formParticlesContainer.className = 'form-particles-container';
     formParticlesContainer.style.cssText = `
@@ -223,9 +204,9 @@ function createFormParticleEffect() {
         pointer-events: none;
         z-index: 0;
     `;
-    
+
     hero.appendChild(formParticlesContainer);
-    
+
     // Criar partículas menores e mais sutis
     for (let i = 0; i < 30; i++) {
         createFormParticle(formParticlesContainer);
@@ -246,9 +227,9 @@ function createFormParticle(container) {
         top: ${Math.random() * 100}%;
         animation-delay: ${Math.random() * 3}s;
     `;
-    
+
     container.appendChild(particle);
-    
+
     setTimeout(() => {
         if (particle.parentNode) {
             particle.parentNode.removeChild(particle);
@@ -256,7 +237,7 @@ function createFormParticle(container) {
     }, 12000);
 }
 
-// ===== EFEITO DE MÁQUINA DE ESCREVER =====
+//  EFEITO DE MÁQUINA DE ESCREVER 
 function initTypeWriterEffect() {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
@@ -269,7 +250,7 @@ function typeWriterEffect(element) {
     element.textContent = '';
     element.style.borderRight = '2px solid var(--blood-red)';
     element.style.animation = 'blink 1s infinite';
-    
+
     let i = 0;
     const timer = setInterval(() => {
         if (i < text.length) {
@@ -284,26 +265,26 @@ function typeWriterEffect(element) {
             }, 1000);
         }
     }, 100);
-    
+
     console.log('Efeito de máquina de escrever iniciado');
 }
 
-// ===== EFEITOS DE FORMULÁRIO =====
+//  EFEITOS DE FORMULÁRIO 
 function initFormEffects() {
     const formInputs = document.querySelectorAll('.form-input, .form-select, .form-textarea');
-    
+
     formInputs.forEach(input => {
         // Efeito de foco
-        input.addEventListener('focus', function() {
+        input.addEventListener('focus', function () {
             this.parentNode.classList.add('focused');
         });
-        
-        input.addEventListener('blur', function() {
+
+        input.addEventListener('blur', function () {
             this.parentNode.classList.remove('focused');
         });
-        
+
         // Efeito de preenchimento
-        input.addEventListener('input', function() {
+        input.addEventListener('input', function () {
             if (this.value.length > 0) {
                 this.classList.add('filled');
             } else {
@@ -311,45 +292,45 @@ function initFormEffects() {
             }
         });
     });
-    
+
     // Efeito de hover nos botões
     const buttons = document.querySelectorAll('.btn, .submit-button, .reset-button');
     buttons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
+        button.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-2px)';
         });
-        
-        button.addEventListener('mouseleave', function() {
+
+        button.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0)';
         });
     });
 }
 
-// ===== EFEITOS DE RESULTADO =====
+//  EFEITOS DE RESULTADO 
 function initResultEffects() {
     const dataItems = document.querySelectorAll('.data-item');
-    
+
     dataItems.forEach((item, index) => {
         // Animação sequencial
         setTimeout(() => {
             item.style.opacity = '1';
             item.style.transform = 'translateX(0)';
         }, index * 200);
-        
+
         // Efeito de hover
-        item.addEventListener('mouseenter', function() {
+        item.addEventListener('mouseenter', function () {
             this.style.background = 'rgba(139, 0, 0, 0.1)';
             this.style.paddingLeft = 'var(--spacing-lg)';
         });
-        
-        item.addEventListener('mouseleave', function() {
+
+        item.addEventListener('mouseleave', function () {
             this.style.background = 'transparent';
             this.style.paddingLeft = 'var(--spacing-md)';
         });
     });
 }
 
-// ===== ANIMAÇÕES CSS ADICIONAIS =====
+//  ANIMAÇÕES CSS ADICIONAIS 
 function addCustomAnimations() {
     const style = document.createElement('style');
     style.textContent = `
@@ -378,54 +359,31 @@ function addCustomAnimations() {
     document.head.appendChild(style);
 }
 
-// ===== FUNÇÃO PARA MUDANÇA DE TEMA =====
-function toggleTheme() {
-    const body = document.body;
-    body.classList.toggle('light-theme');
-    
-    const theme = body.classList.contains('light-theme') ? 'light' : 'dark';
-    localStorage.setItem('theme', theme);
-    
-    console.log(`Tema alterado para: ${theme}`);
-}
-
-// ===== CARREGAR TEMA SALVO =====
-function loadSavedTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        document.body.classList.add('light-theme');
-    }
-}
-
-// ===== INICIALIZAR TODOS OS EFEITOS =====
-document.addEventListener('DOMContentLoaded', function() {
+//  INICIALIZAR TODOS OS EFEITOS 
+document.addEventListener('DOMContentLoaded', function () {
     addCustomAnimations();
-    loadSavedTheme();
     initFormEffects();
     initResultEffects();
 });
 
-// ===== EFEITOS DE PERFORMANCE =====
+//  EFEITOS DE PERFORMANCE 
 function optimizePerformance() {
-    // Usar requestAnimationFrame para animações suaves
     let ticking = false;
-    
+
     function updateAnimations() {
-        // Atualizar animações baseadas em scroll
         ticking = false;
     }
-    
+
     function requestTick() {
         if (!ticking) {
             requestAnimationFrame(updateAnimations);
             ticking = true;
         }
     }
-    
+
     window.addEventListener('scroll', requestTick);
 }
 
-// Inicializar otimizações de performance
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     optimizePerformance();
 }); 

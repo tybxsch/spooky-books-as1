@@ -50,7 +50,6 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #28a745, var(--blood-red), #28a745);
     z-index: 1;
 }
 

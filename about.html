@@ -4,36 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre - Terror Literário</title>
-    
-    <!-- CSS Modular -->
+
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/pages/about.css">
     <link rel="stylesheet" href="styles/responsive.css">
-    
-    <!-- Fontes -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <span class="logo-text">Terror Literário</span>
-            </a>
-            <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link">Início</a>
-                <a href="about.html" class="nav-link active">Sobre</a>
-                <a href="form.html" class="nav-link">Contato</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+    <div id="header"></div>
 
     <main class="about-main">
         <section class="about-hero">
@@ -64,12 +46,6 @@
                     </div>
 
                     <div class="content-card">
-                        <h2 class="card-title">Nossa Missão</h2>
-                        <p>O Terror Literário é dedicado a celebrar e promover a rica tradição da literatura de horror. Nosso objetivo é conectar leitores com obras que desafiam, assombram e inspiram.</p>
-                        <p>Acreditamos que o terror literário não é apenas entretenimento, mas uma forma de arte que nos permite explorar os aspectos mais profundos da experiência humana através do prisma do medo.</p>
-                    </div>
-
-                    <div class="content-card">
                         <h2 class="card-title">Autores Clássicos</h2>
                         <div class="authors-grid">
                             <div class="author">
@@ -95,13 +71,9 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Terror Literário. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
-    <!-- JavaScript Modular -->
+    <script src="scripts/components.js"></script>
     <script src="scripts/menu.js"></script>
     <script src="scripts/effects.js"></script>
 </body>
