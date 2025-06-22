@@ -20,7 +20,7 @@ const headerHTML = `
 const footerHTML = `
 <footer class="footer">
     <div class="container">
-        <p>&copy; Site para fins educativos. Pontifícia Universidade Católica do Paraná</p>
+        <p>&copy; Site para fins educativos. Pontifícia Universidade Católica do Paraná.</p>
     </div>
 </footer>`;
 
