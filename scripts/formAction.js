@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     processFormData();
 });
 
-// Não entendi o que fazer aqui, mas foi a forma que pensei para fazer o formAction.html funcionar e recuperar as informações do formulário sem usar o backend
+// Como ainda não tem o back, fiz apenas essa função para recuperar as informações de query string
 function processFormData() {
     const urlParams = new URLSearchParams(window.location.search);
     const resultContainer = document.getElementById('resultData');
