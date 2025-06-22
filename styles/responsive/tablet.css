@@ -1,6 +1,4 @@
-/* ===== TABLET (768px e abaixo) ===== */
 @media (max-width: 768px) {
-    /* Menu Mobile */
     .hamburger {
         display: flex;
     }
@@ -28,7 +26,6 @@
         font-size: 1.1rem;
     }
     
-    /* Animação do hambúrguer */
     .hamburger.active .bar:nth-child(2) {
         opacity: 0;
     }
@@ -41,7 +38,6 @@
         transform: translateY(-7px) rotate(-45deg);
     }
     
-    /* Hero Section */
     .hero {
         flex-direction: column;
         text-align: center;
@@ -52,7 +48,6 @@
         margin-bottom: var(--spacing-xxl);
     }
     
-    /* Grids */
     .books-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: var(--spacing-lg);
@@ -66,7 +61,6 @@
         grid-template-columns: 1fr;
     }
     
-    /* Formulários */
     .contact-form {
         padding: var(--spacing-lg);
     }
@@ -75,12 +69,10 @@
         margin: var(--spacing-lg);
     }
     
-    /* Container */
     .container {
         padding: 0 var(--spacing-md);
     }
     
-    /* Botões */
     .form-actions,
     .result-actions {
         flex-direction: column;
@@ -94,9 +86,7 @@
     }
 }
 
-/* ===== LARGE MOBILE (600px e abaixo) ===== */
 @media (max-width: 600px) {
-    /* Grids específicos */
     .authors-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
@@ -106,12 +96,10 @@
         text-align: center;
     }
     
-    /* Formulários */
     .form-group.full-width {
         grid-column: 1;
     }
 
-    /* Hero */
     .hero-image {
         display: none;
     }
