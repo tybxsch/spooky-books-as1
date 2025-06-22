@@ -1,74 +1,51 @@
-// ===== VALIDAÇÃO DO FORMULÁRIO =====
-
-// Inicializar validação quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Form Validation - Script carregado');
-    
+document.addEventListener('DOMContentLoaded', function() {    
     const form = document.getElementById('contactForm');
     if (form) {
         initFormValidation();
-        console.log('Validação do formulário inicializada');
     }
 });
 
-// ===== INICIALIZAR VALIDAÇÃO =====
 function initFormValidation() {
     const form = document.getElementById('contactForm');
     const inputs = form.querySelectorAll('input, select, textarea');
-    
-    // Adicionar listeners para validação em tempo real
+
     inputs.forEach(input => {
         input.addEventListener('blur', function() {
             validateField(this);
         });
-        
+
         input.addEventListener('input', function() {
-            // Limpar erro quando usuário começar a digitar
             clearFieldError(this);
         });
-        
-        // Validação especial para telefone
+
         if (input.name === 'phone') {
             input.addEventListener('input', function() {
                 applyPhoneMask(this);
             });
         }
     });
-    
-    // Validação no submit
-    form.addEventListener('submit', function(e) {
-        console.log('Formulário sendo enviado...');
-        
+
+    form.addEventListener('submit', function(e) {        
         if (!validateForm()) {
             e.preventDefault();
-            console.log('Formulário contém erros - envio cancelado');
             showFormErrors();
-            showToast('Por favor, corrija os erros no formulário', 'error');
         } else {
-            console.log('Formulário válido - prosseguindo com envio');
-            showToast('Formulário enviado com sucesso!', 'success');
         }
     });
     
-    // Reset do formulário
     const resetButton = form.querySelector('button[type="reset"]');
     if (resetButton) {
         resetButton.addEventListener('click', function() {
             clearAllErrors();
-            console.log('Formulário resetado');
-            showToast('Formulário limpo', 'info');
         });
     }
 }
 
-// ===== VALIDAR CAMPO INDIVIDUAL =====
 function validateField(field) {
     const fieldName = field.name;
     const value = field.value.trim();
     let isValid = true;
     let errorMessage = '';
-    
-    console.log(`Validando campo: ${fieldName} com valor: ${value}`);
     
     switch (fieldName) {
         case 'name':
@@ -140,22 +117,17 @@ function validateField(field) {
     
     if (!isValid) {
         showFieldError(field, errorMessage);
-        console.log(`Erro no campo ${fieldName}: ${errorMessage}`);
     } else {
         clearFieldError(field);
-        console.log(`Campo ${fieldName} válido`);
     }
     
     return isValid;
 }
 
-// ===== VALIDAR FORMULÁRIO COMPLETO =====
 function validateForm() {
     const form = document.getElementById('contactForm');
     const requiredFields = form.querySelectorAll('input[required], select[required], textarea[required]');
     let isFormValid = true;
-    
-    console.log('Iniciando validação completa do formulário...');
     
     requiredFields.forEach(field => {
         if (!validateField(field)) {
@@ -163,11 +135,9 @@ function validateForm() {
         }
     });
     
-    console.log(`Resultado da validação: ${isFormValid ? 'VÁLIDO' : 'INVÁLIDO'}`);
     return isFormValid;
 }
 
-// ===== MOSTRAR ERRO EM CAMPO ESPECÍFICO =====
 function showFieldError(field, message) {
     const errorElement = document.getElementById(field.name + 'Error');
     
@@ -178,14 +148,12 @@ function showFieldError(field, message) {
     
     field.classList.add('error');
     
-    // Adicionar shake effect
     field.style.animation = 'shake 0.5s ease-in-out';
     setTimeout(() => {
         field.style.animation = '';
     }, 500);
 }
 
-// ===== LIMPAR ERRO DE CAMPO ESPECÍFICO =====
 function clearFieldError(field) {
     const errorElement = document.getElementById(field.name + 'Error');
     
@@ -197,7 +165,6 @@ function clearFieldError(field) {
     field.classList.remove('error');
 }
 
-// ===== LIMPAR TODOS OS ERROS =====
 function clearAllErrors() {
     const errorElements = document.querySelectorAll('.error-message');
     const fieldElements = document.querySelectorAll('.form-input, .form-select, .form-textarea');
@@ -212,43 +179,33 @@ function clearAllErrors() {
     });
 }
 
-// ===== MOSTRAR ERROS DO FORMULÁRIO =====
 function showFormErrors() {
     const errorFields = document.querySelectorAll('.form-input.error, .form-select.error, .form-textarea.error');
     
     if (errorFields.length > 0) {
-        // Scroll para o primeiro campo com erro
         errorFields[0].scrollIntoView({ 
             behavior: 'smooth', 
             block: 'center' 
         });
         
-        // Focar no primeiro campo com erro
         setTimeout(() => {
             errorFields[0].focus();
         }, 500);
     }
 }
 
-// ===== VALIDAÇÕES ESPECÍFICAS =====
-
-// Validar e-mail
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
-// Validar telefone
 function isValidPhone(phone) {
-    // Remove todos os caracteres não numéricos
     const cleanPhone = phone.replace(/\D/g, '');
     
-    // Verifica se tem entre 10 e 11 dígitos (com DDD)
     if (cleanPhone.length < 10 || cleanPhone.length > 11) {
         return false;
     }
     
-    // Verifica se começa com 9 (celular) ou não (fixo)
     if (cleanPhone.length === 11 && cleanPhone.charAt(2) !== '9') {
         return false;
     }
@@ -256,7 +213,6 @@ function isValidPhone(phone) {
     return true;
 }
 
-// Aplicar máscara de telefone
 function applyPhoneMask(input) {
     let value = input.value.replace(/\D/g, '');
     
@@ -275,47 +231,6 @@ function applyPhoneMask(input) {
     input.value = value;
 }
 
-// ===== SISTEMA DE TOAST =====
-function showToast(message, type = 'info') {
-    // Remover toasts existentes
-    const existingToasts = document.querySelectorAll('.toast');
-    existingToasts.forEach(toast => toast.remove());
-    
-    // Criar novo toast
-    const toast = document.createElement('div');
-    toast.className = `toast toast-${type}`;
-    toast.textContent = message;
-    
-    // Adicionar ao DOM
-    document.body.appendChild(toast);
-    
-    // Mostrar toast
-    setTimeout(() => {
-        toast.classList.add('show');
-    }, 100);
-    
-    // Remover toast após 5 segundos
-    setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => {
-            if (toast.parentNode) {
-                toast.parentNode.removeChild(toast);
-            }
-        }, 300);
-    }, 5000);
-    
-    // Permitir fechar toast ao clicar
-    toast.addEventListener('click', function() {
-        toast.classList.remove('show');
-        setTimeout(() => {
-            if (toast.parentNode) {
-                toast.parentNode.removeChild(toast);
-            }
-        }, 300);
-    });
-}
-
-// ===== CONTADOR DE CARACTERES =====
 function initCharacterCounter() {
     const textarea = document.querySelector('.form-textarea');
     if (textarea) {
@@ -343,11 +258,10 @@ function initCharacterCounter() {
         }
         
         textarea.addEventListener('input', updateCounter);
-        updateCounter(); // Contador inicial
+        updateCounter();
     }
 }
 
-// ===== INICIALIZAR CONTADOR DE CARACTERES =====
 document.addEventListener('DOMContentLoaded', function() {
     initCharacterCounter();
 }); 

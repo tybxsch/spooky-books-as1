@@ -1,7 +1,4 @@
-
-// JavaScript para processar dados recebidos via GET
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Página de resultado carregada');
     processFormData();
 });
 
@@ -76,7 +73,6 @@ function processFormData() {
         addCopyButton();
         addPrintButton();
         logFormSubmission(urlParams);
-        showSuccessAnimation();
     } else {
         showNoDataMessage();
     }
@@ -103,7 +99,6 @@ function showNoDataMessage() {
     console.log('Nenhum dado encontrado na URL');
 }
 
-// Adicionar botão de copiar dados
 function addCopyButton() {
     const resultCard = document.querySelector('.result-card');
     if (!resultCard) return;
@@ -185,11 +180,9 @@ function copyDataToClipboard() {
     textToCopy += `\nData: ${new Date().toLocaleString('pt-BR')}`;
     
     navigator.clipboard.writeText(textToCopy).then(() => {
-        showToast('Dados copiados para a área de transferência!', 'success');
         console.log('Dados copiados para clipboard');
     }).catch(err => {
         console.error('Erro ao copiar dados:', err);
-        showToast('Erro ao copiar dados', 'error');
     });
 }
 
@@ -257,90 +250,4 @@ function printData() {
     printWindow.document.write(printHtml);
     printWindow.document.close();
     printWindow.print();
-}
-
-function logFormSubmission(urlParams) {
-    const submissionData = {
-        timestamp: new Date().toISOString(),
-        userAgent: navigator.userAgent,
-        referrer: document.referrer,
-        data: {}
-    };
-    
-    for (const [key, value] of urlParams.entries()) {
-        submissionData.data[key] = value;
-    }
-
-    // Implementar aqui o post, quando estiver pronto
-}
-
-function showSuccessAnimation() {
-    const resultCard = document.querySelector('.result-card');
-    if (!resultCard) return;
-    
-    // Adicionar classe de animação
-    resultCard.style.animation = 'slideInUp 0.6s ease-out';
-    
-    setTimeout(() => {
-        showToast('Dados recebidos e processados com sucesso!', 'success');
-    }, 500);
-}
-
-
-// Função para mostrar toast
-function showToast(message, type = 'info') {
-    const toast = document.createElement('div');
-    toast.className = `toast toast-${type}`;
-    toast.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'error' ? '#dc143c' : type === 'success' ? '#4CAF50' : '#2196F3'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 5px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-        max-width: 300px;
-        word-wrap: break-word;
-    `;
-    
-    toast.textContent = message;
-    document.body.appendChild(toast);
-    
-    setTimeout(() => {
-        toast.style.transform = 'translateX(0)';
-    }, 100);
-    
-    setTimeout(() => {
-        toast.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            if (toast.parentNode) {
-                toast.parentNode.removeChild(toast);
-            }
-        }, 300);
-    }, 4000);
-}
-
-// Adicionar animações CSS
-const animationStyles = document.createElement('style');
-animationStyles.textContent = `
-    @keyframes slideInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-`;
-document.head.appendChild(animationStyles);
-
-// Função para voltar ao formulário (caso necessário)
-function goBackToForm() {
-    window.location.href = 'form.html';
 }

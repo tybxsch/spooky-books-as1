@@ -100,33 +100,3 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
-/* ===== TOAST ===== */
-.toast {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: var(--radius-md);
-    color: var(--pure-white);
-    font-weight: 500;
-    z-index: 10000;
-    transform: translateX(400px);
-    transition: transform var(--transition-normal);
-}
-
-.toast.show {
-    transform: translateX(0);
-}
-
-.toast-success {
-    background: #28a745;
-}
-
-.toast-error {
-    background: var(--blood-red);
-}
-
-.toast-info {
-    background: #17a2b8;
-} 
