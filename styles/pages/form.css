@@ -211,13 +211,7 @@
 }
 
 .submit-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-horror);
     background: linear-gradient(45deg, var(--blood-red), var(--dark-red));
-}
-
-.submit-button:active {
-    transform: translateY(0);
 }
 
 .reset-button {

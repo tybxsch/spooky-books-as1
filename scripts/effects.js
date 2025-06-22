@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     initThemeEffects();
     initScrollAnimations();
     initTypeWriterEffect();
+    addCustomAnimations();
+    initFormEffects();
 });
 
 function initThemeEffects() {
@@ -23,17 +25,6 @@ function initThemeEffects() {
         });
 
         card.addEventListener('mouseleave', function () {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-
-    const authors = document.querySelectorAll('.author');
-    authors.forEach(author => {
-        author.addEventListener('mouseenter', function () {
-            this.style.transform = 'translateY(-3px) scale(1.05)';
-        });
-
-        author.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
@@ -67,7 +58,7 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.book-card, .content-card, .author, .data-item');
+    const animatedElements = document.querySelectorAll('.book-card, .content-card, .data-item');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -120,33 +111,6 @@ function initFormEffects() {
             }
         });
     });
-
-    const buttons = document.querySelectorAll('.btn, .submit-button, .reset-button');
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', function () {
-            this.style.transform = 'translateY(-2px)';
-        });
-
-        button.addEventListener('mouseleave', function () {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-}
-
-function initResultEffects() {
-    const dataItems = document.querySelectorAll('.data-item');
-
-    dataItems.forEach((item, index) => {
-        item.addEventListener('mouseenter', function () {
-            this.style.background = 'rgba(139, 0, 0, 0.1)';
-            this.style.paddingLeft = 'var(--spacing-lg)';
-        });
-
-        item.addEventListener('mouseleave', function () {
-            this.style.background = 'transparent';
-            this.style.paddingLeft = 'var(--spacing-md)';
-        });
-    });
 }
 
 function addCustomAnimations() {
@@ -169,16 +133,6 @@ function addCustomAnimations() {
         .form-input.filled {
             border-color: var(--blood-red);
         }
-        
-        .glow-effect {
-            animation: glow 2s ease-in-out infinite;
-        }
     `;
     document.head.appendChild(style);
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    addCustomAnimations();
-    initFormEffects();
-    initResultEffects();
-});

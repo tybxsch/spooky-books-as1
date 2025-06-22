@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     if (form) {
         initFormValidation();
+        initCharacterCounter();
     }
 });
 
@@ -261,7 +262,3 @@ function initCharacterCounter() {
         updateCounter();
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    initCharacterCounter();
-}); 

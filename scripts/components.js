@@ -1,18 +1,13 @@
 const headerHTML = `
-<nav class="navbar" id="navbar">
+<nav class="navbar">
     <div class="nav-container">
         <a href="index.html" class="nav-logo">
             <span class="logo-text">Terror Literário</span>
         </a>
-        <div class="nav-menu" id="nav-menu">
+        <div class="nav-menu">
             <a href="index.html" class="nav-link">Início</a>
             <a href="about.html" class="nav-link">Sobre</a>
             <a href="form.html" class="nav-link">Contato</a>
-        </div>
-        <div class="hamburger" id="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
         </div>
     </div>
 </nav>`;
@@ -29,14 +24,7 @@ function injectComponent(id, html) {
     if (element) element.innerHTML = html;
 }
 
-function runOptionalInitializers() {
-    if (typeof initMobileMenu === 'function') initMobileMenu();
-    if (typeof initScrollEffects === 'function') initScrollEffects();
-    if (typeof initActiveNavLink === 'function') initActiveNavLink();
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     injectComponent('header', headerHTML);
     injectComponent('footer', footerHTML);
-    setTimeout(runOptionalInitializers, 50);
 });
