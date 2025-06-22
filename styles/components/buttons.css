@@ -1,4 +1,3 @@
-/* Classe base para todos os botões */
 .btn {
     display: inline-block;
     padding: var(--spacing-md) var(--spacing-xl);
@@ -12,7 +11,6 @@
     text-align: center;
 }
 
-/* Efeito de hover padronizado para TODOS os botões */
 .btn:hover,
 .submit-button:hover,
 .reset-button:hover,
@@ -23,7 +21,6 @@
     box-shadow: var(--shadow-horror);
 }
 
-/* Variações de botões */
 .btn-primary {
     background: linear-gradient(45deg, var(--dark-red), var(--blood-red));
     color: var(--pure-white);
