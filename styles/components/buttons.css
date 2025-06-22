@@ -11,13 +11,7 @@
     text-align: center;
 }
 
-.btn:hover,
-.submit-button:hover,
-.reset-button:hover,
-.back-button:hover,
-.new-form-button:hover,
-.newsletter-button:hover,
-.cta-button:hover {
+.btn:hover {
     box-shadow: var(--shadow-horror);
 }
 

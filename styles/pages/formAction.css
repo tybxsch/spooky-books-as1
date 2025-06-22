@@ -10,18 +10,6 @@
     overflow: hidden;
 }
 
-.result-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="result-dots" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1" fill="%23dc143c" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23result-dots)"/></svg>');
-    opacity: 0.4;
-    z-index: -1;
-}
-
 .result-content {
     padding: var(--spacing-xxxl) 0;
 }
@@ -36,16 +24,6 @@
     border: 1px solid var(--medium-gray);
     position: relative;
     overflow: hidden;
-}
-
-.result-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    z-index: 1;
 }
 
 .result-title {
@@ -110,68 +88,4 @@
     flex-wrap: wrap;
     padding-top: var(--spacing-lg);
     border-top: 1px solid var(--medium-gray);
-}
-
-.back-button,
-.new-form-button {
-    padding: var(--spacing-md) var(--spacing-xxl);
-    border: none;
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    text-decoration: none;
-    display: inline-block;
-    min-width: 150px;
-    text-align: center;
-}
-
-.back-button {
-    background: linear-gradient(45deg, var(--dark-gray), var(--medium-gray));
-    color: var(--smoke-white);
-    box-shadow: var(--shadow-medium);
-}
-
-.back-button:hover {
-    background: linear-gradient(45deg, var(--medium-gray), var(--light-gray));
-}
-
-.new-form-button {
-    background: linear-gradient(45deg, var(--dark-red), var(--blood-red));
-    color: var(--pure-white);
-    box-shadow: var(--shadow-medium);
-}
-
-.new-form-button:hover {
-    background: linear-gradient(45deg, var(--blood-red), var(--dark-red));
-}
-
-.result-card {
-    animation: resultGlow 6s ease-in-out infinite;
-}
-
-@keyframes resultGlow {
-    0%, 100% {
-        box-shadow: var(--shadow-heavy);
-    }
-    50% {
-        box-shadow: 0 0 35px rgba(220, 20, 60, 0.25);
-    }
-}
-
-.data-item.success {
-    border-left: 4px solid #28a745;
-    padding-left: var(--spacing-md);
-}
-
-.data-item.newsletter {
-    background: rgba(220, 20, 60, 0.1);
-    border-radius: var(--radius-sm);
-    padding: var(--spacing-md);
-    margin: var(--spacing-sm) 0;
-}
-
-.data-item.newsletter .data-label {
-    color: #28a745;
 }

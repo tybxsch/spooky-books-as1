@@ -58,7 +58,7 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.book-card, .content-card, .data-item');
+    const animatedElements = document.querySelectorAll('.book-card, .content-card, .data-item, contact-form');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -120,12 +120,7 @@ function addCustomAnimations() {
             0%, 100% { opacity: 0.1; }
             50% { opacity: 0.5; }
         }
-        
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 5px rgba(220, 20, 60, 0.3); }
-            50% { box-shadow: 0 0 20px rgba(220, 20, 60, 0.6); }
-        }
-        
+
         .form-group.focused .form-label {
             color: var(--blood-red);
         }
