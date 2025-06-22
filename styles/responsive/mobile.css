@@ -1,0 +1,72 @@
+/* ===== MOBILE (480px e abaixo) ===== */
+@media (max-width: 480px) {
+    /* Tipografia */
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    /* Formulários */
+    .contact-form,
+    .result-card {
+        margin: var(--spacing-sm);
+        padding: var(--spacing-md);
+    }
+    
+    /* Cards */
+    .card {
+        padding: var(--spacing-lg);
+    }
+    
+    /* Botões */
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+    
+    .btn-large {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: 1rem;
+    }
+    
+    /* Grids */
+    .books-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    /* Espaçamentos */
+    .section {
+        padding: var(--spacing-xxl) 0;
+    }
+    
+    .hero {
+        padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-lg);
+    }
+    
+    /* Container */
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* Navbar */
+    .nav-container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: var(--spacing-lg) 0;
+    }
+} 

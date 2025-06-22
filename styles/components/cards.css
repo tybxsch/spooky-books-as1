@@ -1,0 +1,39 @@
+/* ===== CARDS ===== */
+.card {
+    background: rgba(45, 45, 45, 0.8);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-medium);
+    transition: all var(--transition-normal);
+    border: 1px solid var(--medium-gray);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+    border-color: var(--blood-red);
+}
+
+.card-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    color: var(--smoke-white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-subtitle {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.card-content {
+    margin-bottom: var(--spacing-lg);
+}
+
+.card-footer {
+    border-top: 1px solid var(--medium-gray);
+    padding-top: var(--spacing-lg);
+} 

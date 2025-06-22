@@ -1,0 +1,25 @@
+/*Loader de estilos*/
+
+@import url('base/variables.css');
+@import url('base/reset.css');
+@import url('base/typography.css');
+@import url('base/utilities.css');
+
+
+@import url('layout/grid.css');
+@import url('layout/header.css');
+@import url('layout/footer.css');
+
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/forms.css');
+@import url('components/misc.css');
+
+@import url('pages/index.css');
+@import url('pages/about.css');
+@import url('pages/form.css');
+@import url('pages/formAction.css');
+
+@import url('responsive/tablet.css');
+@import url('responsive/mobile.css');
+@import url('responsive/desktop.css'); 

@@ -1,0 +1,12 @@
+/* ===== FOOTER ===== */
+.footer {
+    background: var(--primary-black);
+    text-align: center;
+    padding: var(--spacing-xxl) 0;
+    border-top: 1px solid var(--dark-red);
+}
+
+.footer p {
+    color: var(--light-gray);
+    margin: 0;
+} 

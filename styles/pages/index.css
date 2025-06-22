@@ -47,7 +47,6 @@
 .book-cover {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, var(--dark-gray), var(--medium-gray));
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
@@ -55,6 +54,12 @@
     margin-bottom: var(--spacing-lg);
     position: relative;
     overflow: hidden;
+}
+
+.book-cover-image {
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .book-placeholder {

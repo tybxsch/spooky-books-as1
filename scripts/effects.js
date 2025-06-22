@@ -248,7 +248,7 @@ function initTypeWriterEffect() {
 function typeWriterEffect(element) {
     const text = element.textContent;
     element.textContent = '';
-    element.style.borderRight = '2px solid var(--blood-red)';
+    element.style.borderRight = '2px solid var(--smoke-white)';
     element.style.animation = 'blink 1s infinite';
 
     let i = 0;
@@ -265,8 +265,6 @@ function typeWriterEffect(element) {
             }, 1000);
         }
     }, 100);
-
-    console.log('Efeito de máquina de escrever iniciado');
 }
 
 //  EFEITOS DE FORMULÁRIO 
