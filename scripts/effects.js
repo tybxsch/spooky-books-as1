@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initThemeEffects();
     initScrollAnimations();
     initTypeWriterEffect();
-    addCustomAnimations();
     initFormEffects();
 });
 
@@ -58,7 +57,7 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.book-card, .content-card, .data-item, contact-form');
+    const animatedElements = document.querySelectorAll('.book-card, .content-card, .data-item, .contact-form');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -111,23 +110,4 @@ function initFormEffects() {
             }
         });
     });
-}
-
-function addCustomAnimations() {
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.5; }
-        }
-
-        .form-group.focused .form-label {
-            color: var(--blood-red);
-        }
-        
-        .form-input.filled {
-            border-color: var(--blood-red);
-        }
-    `;
-    document.head.appendChild(style);
 }

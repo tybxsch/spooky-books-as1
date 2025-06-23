@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {    
+document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contactForm');
     if (form) {
         initFormValidation();
@@ -26,14 +26,15 @@ function initFormValidation() {
         }
     });
 
-    form.addEventListener('submit', function(e) {        
+    form.addEventListener('submit', function(e) {
         if (!validateForm()) {
             e.preventDefault();
             showFormErrors();
         } else {
+            clearAllErrors();
         }
     });
-    
+
     const resetButton = form.querySelector('button[type="reset"]');
     if (resetButton) {
         resetButton.addEventListener('click', function() {
@@ -85,8 +86,8 @@ function validateField(field) {
                 isValid = false;
             } else {
                 const age = parseInt(value);
-                if (age < 13) {
-                    errorMessage = 'Idade mínima é 13 anos';
+                if (age < 18) {
+                    errorMessage = 'Idade mínima é 18 anos';
                     isValid = false;
                 } else if (age > 120) {
                     errorMessage = 'Idade deve ser realista';

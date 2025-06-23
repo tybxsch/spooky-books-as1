@@ -17,13 +17,7 @@
 .contact-form {
     max-width: 800px;
     margin: 0 auto;
-    background: rgba(45, 45, 45, 0.9);
-    border-radius: var(--radius-xl);
     padding: var(--spacing-xxl);
-    box-shadow: var(--shadow-heavy);
-    border: 1px solid var(--medium-gray);
-    position: relative;
-    overflow: hidden;
 }
 
 .form-grid {
